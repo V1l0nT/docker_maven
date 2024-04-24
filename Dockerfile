@@ -1,8 +1,6 @@
 # Используем базовый образ Maven
 FROM maven:latest
 
-# Установить переменные среды (если необходимо)
-
 # Копировать файлы проекта в контейнер
 COPY . /usr/src/myapp
 
@@ -13,5 +11,4 @@ WORKDIR /usr/src/myapp
 RUN mvn dependency:resolve
 RUN mvn install
 
-# Опционально: Указать точку входа для запуска приложения
 # ENTRYPOINT ["java", "-jar", "target/myapp.jar"]
