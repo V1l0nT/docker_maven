@@ -1,0 +1,4 @@
+services:
+  - name: maven
+    dockerfile: Dockerfile
+    plan: starter
