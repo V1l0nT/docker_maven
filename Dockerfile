@@ -1,14 +1,11 @@
-# Используем базовый образ Maven
+# Используем официальный образ Maven
 FROM maven:latest
 
-# Копировать файлы проекта в контейнер
-COPY . /usr/src/myapp
+# Установка рабочей директории в контейнере
+WORKDIR /usr/src/app
 
-# Указать рабочую директорию
-WORKDIR /usr/src/myapp
+# Копирование исходного кода приложения в контейнер
+COPY . .
 
-# Установить зависимости Maven и собрать проект
-RUN mvn dependency:resolve
-RUN mvn install
-
-# ENTRYPOINT ["java", "-jar", "target/myapp.jar"]
+# Команда для сборки проекта с помощью Maven
+RUN mvn clean package
